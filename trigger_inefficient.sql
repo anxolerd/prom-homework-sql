@@ -1,7 +1,7 @@
 CREATE OR REPLACE FUNCTION do_count_products() RETURNS trigger AS $$ 
   BEGIN 
     UPDATE company c SET products_num = (
-        SELECT count(*) FROM product p WHERE p.company_id = c.id
+      SELECT count(*) FROM product p WHERE p.company_id = c.id
     ); 
     RETURN NULL; 
   END; 
